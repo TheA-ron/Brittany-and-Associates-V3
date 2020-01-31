@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<head>
+<script src="stocks.js"></script>
+<script>
+var high;
+var result;
+var jew;
+var stocks = new Stocks('VX6D1GGQSD8UJLCV');
+async function request(symbol) {
+  result = await stocks.timeSeries({
+    symbol: (symbol),
+    interval: '1min',
+    amount: 1
+   });
+   //console.log(JSON.stringify(result)); full string
+   result = JSON.stringify(result);
+   high = (result.substring(result.indexOf("high")+6, 500).substring(0, result.substring(result.indexOf("high")+6, 500).indexOf(",")));
+   console.log(symbol + ": $" + high);
+   return(high);
+}
+setTimeout(function(){ alert(request("BYND")); }, 0);
+
+</script>
+</head>
+<body>
+
+</body>
