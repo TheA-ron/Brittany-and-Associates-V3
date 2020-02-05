@@ -1,25 +1,27 @@
 <!DOCTYPE HTML>
 <head>
-<script src="stocks.js"></script>
 <script>
-var high;
-var result;
 var jew;
-var stocks = new Stocks('VX6D1GGQSD8UJLCV');
-async function request(symbol) {
-  result = await stocks.timeSeries({
-    symbol: (symbol),
-    interval: '1min',
-    amount: 1
-   });
-   //console.log(JSON.stringify(result)); full string
-   result = JSON.stringify(result);
-   high = (result.substring(result.indexOf("high")+6, 500).substring(0, result.substring(result.indexOf("high")+6, 500).indexOf(",")));
-   console.log(symbol + ": $" + high);
-   return(high);
-}
-setTimeout(function(){ alert(request("BYND")); }, 0);
+const url = new URL(
+    "https://api.worldtradingdata.com/api/v1/stock"
+);
+function price(symbol) {
+let params = {
+    "symbol": (symbol),
+    "api_token": "CtE9BRvfbrygbjgMZorx5A8fhs0t1rBKOINinkWoG3aSNqLAp40jdELocr29",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
+fetch(url, {
+    method: "GET",
+})
+    .then(response => response.json())
+    .then(json => jew = ((((((Object.values(json)))))[2])[0]));
+}
+//five at a time!
+price("AAPL");
+setTimeout(function(){ console.log(jew); }, 2000);
 </script>
 </head>
 <body>
