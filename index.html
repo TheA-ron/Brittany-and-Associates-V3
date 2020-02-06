@@ -1,7 +1,12 @@
 <!DOCTYPE HTML>
 <head>
 <script>
-var temp;var i;var jew;var adbe;var orcl;var xlk;var pypl;var ibm;
+var calculations;var temp=[];var i;var jew;
+//real estate declarations
+var RDFN;
+var AMT;
+var SPG;
+var PSA;
 const url = new URL(
     "https://api.worldtradingdata.com/api/v1/stock"
 );
@@ -22,23 +27,44 @@ fetch(url, {
 function getPrice(symbols) {
 price(symbols);
 setTimeout(function(){
-for (i = 0; i < 5; i++) {
-console.log(symbols.split(",")[i]);
-console.log(((Object.values(jew[i]))[10]));
-jew[i]=((Object.values(jew[i]))[10]);
+for (i = 0; i < (symbols.split(",").length); i++) {
+temp[i] = ((Object.values(jew[i]))[0])+"*"+((Object.values(jew[i]))[10]);
 }
 }, 1000);
+}
+function findinarray(array, string) {
+for (i = 0; i < array.length; i++) {
+if ((array[i]).includes(string)) {
+return(i);
+}
+}
+}
+function extract(symbol) {
+return(Number(temp[String(findinarray(temp, symbol))].substring(temp[(findinarray(temp, symbol))].indexOf("*")+1, 10)));
 }
 function israel() {
-//tech sector
-getPrice("XLK,IBM,ORCL,PYPL,MSFT");
+getPrice("VNQ,RDFN,AMT,SPG,PSA");
+calculations=1;
+//real estate wave 1
 setTimeout(function(){
-ADBE=jew[0];
-IBM=jew[1];
-ORCL=jew[2];
-PYPL=jew[3];
-XLK=jew[4];
-}, 1000);
+VNQ=extract("VNQ");
+RDFN=extract("RDFN");
+AMT=extract("AMT");
+SPG=extract("SPG");
+PSA=extract("PSA");
+if (VNQ-RDFN>.5) {
+console.log("RDFN : " + RDFN + ", VNQ : " + VNQ);
+}
+if (VNQ-AMT>.5) {
+console.log("AMT : " + AMT + ", VNQ : " + VNQ);
+}
+if (VNQ-SPG>.5) {
+console.log("SPG : " + SPG + ", VNQ : " + VNQ);
+}
+if (VNQ-PSA>.5) {
+console.log("PSA : " + PSA + ", VNQ : " + VNQ);
+}
+}, (1001*calculations));
 }
 israel();
 </script>
