@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <head>
 <script>
-var jew;
+var temp;var i;var jew;var adbe;var orcl;var xlk;var pypl;var ibm;
 const url = new URL(
     "https://api.worldtradingdata.com/api/v1/stock"
 );
@@ -17,11 +17,30 @@ fetch(url, {
     method: "GET",
 })
     .then(response => response.json())
-    .then(json => jew = ((((((Object.values(json)))))[2])[0]));
+    .then(json => jew = ((Object.values(json))[2]));
 }
-//five at a time!
-price("AAPL");
-setTimeout(function(){ console.log(jew); }, 2000);
+function getPrice(symbols) {
+price(symbols);
+setTimeout(function(){
+for (i = 0; i < 5; i++) {
+console.log(symbols.split(",")[i]);
+console.log(((Object.values(jew[i]))[10]));
+jew[i]=((Object.values(jew[i]))[10]);
+}
+}, 1000);
+}
+function israel() {
+//tech sector
+getPrice("XLK,IBM,ORCL,PYPL,MSFT");
+setTimeout(function(){
+ADBE=jew[0];
+IBM=jew[1];
+ORCL=jew[2];
+PYPL=jew[3];
+XLK=jew[4];
+}, 1000);
+}
+israel();
 </script>
 </head>
 <body>
