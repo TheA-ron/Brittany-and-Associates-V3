@@ -1,75 +1,79 @@
 <!DOCTYPE HTML>
 <head>
+<link rel="stylesheet" type="text/css" href="css.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+<script src="js.js"></script>
 <script>
-var calculations;var temp=[];var i;var jew;
-//real estate declarations
-var RDFN;
-var AMT;
-var SPG;
-var PSA;
-const url = new URL(
-    "https://api.worldtradingdata.com/api/v1/stock"
-);
-function price(symbol) {
-let params = {
-    "symbol": (symbol),
-    "api_token": "CtE9BRvfbrygbjgMZorx5A8fhs0t1rBKOINinkWoG3aSNqLAp40jdELocr29",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-fetch(url, {
-    method: "GET",
-})
-    .then(response => response.json())
-    .then(json => jew = ((Object.values(json))[2]));
-}
-function getPrice(symbols) {
-price(symbols);
-setTimeout(function(){
-for (i = 0; i < (symbols.split(",").length); i++) {
-temp[i] = ((Object.values(jew[i]))[0])+"*"+((Object.values(jew[i]))[10]);
-}
-}, 1000);
-}
-function findinarray(array, string) {
-for (i = 0; i < array.length; i++) {
-if ((array[i]).includes(string)) {
-return(i);
-}
-}
-}
-function extract(symbol) {
-return(Number(temp[String(findinarray(temp, symbol))].substring(temp[(findinarray(temp, symbol))].indexOf("*")+1, 10)));
+function createListing(input, tag) {
+  var para = document.createElement(tag);
+  para.innerHTML = (input);
+  document.getElementById("skeleton").appendChild(para);
 }
 function israel() {
-getPrice("VNQ,RDFN,AMT,SPG,PSA");
-calculations=1;
-//real estate wave 1
+
+
+
+//finance wave 1
+getPrice("VFH,BRK.B,V,JPM,MA");
 setTimeout(function(){
-VNQ=extract("VNQ");
-console.log("VNQ (Real Estate) : "+VNQ+"%");
-RDFN=extract("RDFN");
-AMT=extract("AMT");
-SPG=extract("SPG");
-PSA=extract("PSA");
-if (VNQ-RDFN>.5) {
-console.log("RDFN : " + RDFN + ", VNQ : " + VNQ);
+VFH=extract("VFH");
+console.log("VFH (Finance) : "+VFH+"%");
+createListing("Finance = " + VFH + "%", "u");
+test(VFH,"BRK.B");
+test(VFH,"V");
+test(VFH,"JPM");
+test(VFH,"MA");
+getPrice("BAC,WFC,C,HSBC,HDB");
+}, (1500*calcs));
+calcs++;
+//finance wave 1
+
+
+
+//finance wave 2
+setTimeout(function(){
+test(VFH,"BAC");
+test(VFH,"WFC");
+test(VFH,"C");
+test(VFH,"HSBC");
+test(VFH,"HDB");
+getPrice("AXP,MS,BLK,GS,UBS");
+}, (1500*calcs));
+calcs++;
+//finance wave 2
+
+
+
+//finance wave 3
+setTimeout(function(){
+test(VFH,"AXP");
+test(VFH,"MS");
+test(VFH,"BLK");
+test(VFH,"GS");
+test(VFH,"UBS");
+}, (1500*calcs));
+calcs++;
+//finance wave 3
 }
-if (VNQ-AMT>.5) {
-console.log("AMT : " + AMT + ", VNQ : " + VNQ);
-}
-if (VNQ-SPG>.5) {
-console.log("SPG : " + SPG + ", VNQ : " + VNQ);
-}
-if (VNQ-PSA>.5) {
-console.log("PSA : " + PSA + ", VNQ : " + VNQ);
-}
-}, (1001*calculations));
-}
+
+
+
+
+
+
+
+
+
+
+
+
 israel();
 </script>
 </head>
 <body>
-
+<h2>Salamander Investment Strategies</h1>
+<h5>Founded By Aron Frishberg</h3>
+<hr style="color:white; background-color:white; height:1px; width:calc(95vw);"></hr>
+<div id="skeleton">
+</div>
 </body>
