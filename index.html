@@ -59,6 +59,25 @@ calcs++;
 
 
 
+//tech wave 1
+getPrice("XLK,MSFT,GOOG,FB,CSCO");
+setTimeout(function(){
+XLK=extract("XLK");
+console.log("XLK (Tech) : "+XLK+"%");
+createListing("Technology = " + XLK + "%", "u");
+test(XLK,"MSFT");
+test(XLK,"GOOG");
+test(XLK,"FB");
+test(XLK,"CSCO");
+//getPrice("BAC,WFC,C,HSBC,HDB");
+}, (1500*calcs));
+calcs++;
+//tech wave 1
+}
+
+
+
+
 
 
 
