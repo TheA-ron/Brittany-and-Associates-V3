@@ -1,7 +1,8 @@
 var temp=[];var i;var jew;var calcs=1;
 //etf declarations
 var VFH; //finance
-var XLK; //tech
+var XSW; //tech services
+var XLK; //tech electronic
 const url = new URL(
     "https://api.worldtradingdata.com/api/v1/stock"
 );

@@ -50,7 +50,7 @@ test(VFH,"MS");
 test(VFH,"BLK");
 test(VFH,"GS");
 test(VFH,"UBS");
-getPrice("XLK,MSFT,GOOG,FB,CSCO");
+getPrice("XSW,MSFT,GOOG,FB,CSCO");
 }, (1500*calcs));
 calcs++;
 //finance wave 3
@@ -59,48 +59,94 @@ calcs++;
 
 
 
-//tech wave 1
+//tech services wave 1
 setTimeout(function(){
-XLK=extract("XLK");
-console.log("XLK (Technology) : "+XLK+"%");
-createListing("Technology = " + XLK + "%", "u");
-test(XLK,"MSFT");
-test(XLK,"GOOG");
-test(XLK,"FB");
-test(XLK,"CSCO");
+XSW=extract("XSW");
+console.log("XSW (Technology Services) : "+XSW+"%");
+createListing("Technology Services = " + XSW + "%", "u");
+test(XSW,"MSFT");
+test(XSW,"GOOG");
+test(XSW,"FB");
+test(XSW,"CSCO");
 getPrice("ADBE,ORCL,CRM,PYPL,IBM");
 }, (1500*calcs));
 calcs++;
-//tech wave 1
+//tech services wave 1
 
 
 
 
-//tech wave 2
+//tech services wave 2
 setTimeout(function(){
-test(XLK,"ADBE");
-test(XLK,"ORCL");
-test(XLK,"CRM");
-test(XLK,"PYPL");
-test(XLK,"IBM");
+test(XSW,"ADBE");
+test(XSW,"ORCL");
+test(XSW,"CRM");
+test(XSW,"PYPL");
+test(XSW,"IBM");
 getPrice("TWTR,WORK,Z,DBX");
 }, (1500*calcs));
 calcs++;
-//tech wave 2
+//tech services wave 2
 
 
 
 
-//tech wave 3
+//tech services wave 3
 setTimeout(function(){
-test(XLK,"TWTR");
-test(XLK,"WORK");
-test(XLK,"Z"); 
-test(XLK,"DBX");
-//getPrice("TWTR,WORK,Z,DBX,GE");
+test(XSW,"TWTR");
+test(XSW,"WORK");
+test(XSW,"Z"); 
+test(XSW,"DBX");
+getPrice("XLK,AAPL,TSM,INTC,NVDA");
 }, (1500*calcs));
 calcs++;
-//tech wave 3
+//tech services wave 3
+
+
+
+
+
+//electronics wave 1
+setTimeout(function(){
+XLK=extract("XLK");
+console.log("XLK (Electronic Tech) : "+XLK+"%");
+createListing("Electronic Tech = " + XLK + "%", "u");
+test(XLK,"AAPL");
+test(XLK,"TSM");
+test(XLK,"INTC");
+test(XLK,"NVDA");
+getPrice("TXN,GE,BA,QCOM,DELL");
+}, (1500*calcs));
+calcs++;
+//electronics wave 1
+
+
+//electronics wave 2
+setTimeout(function(){
+test(XLK,"TXN");
+test(XLK,"GE");
+test(XLK,"BA"); 
+test(XLK,"QCOM");
+test(XLK,"DELL");
+getPrice("MU,HPQ,WDC,HPE,STX");
+}, (1500*calcs));
+calcs++;
+//electronics wave 2
+
+
+
+
+
+//electronics wave 3
+setTimeout(function(){
+test(XLK,"MU");
+test(XLK,"HPQ");
+test(XLK,"WDC"); 
+test(XLK,"HPE");
+test(XLK,"STX");
+}, (1500*calcs));
+calcs++;
+//electronics wave 3
 
 
 
