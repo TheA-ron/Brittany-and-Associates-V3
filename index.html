@@ -12,7 +12,6 @@ function createListing(input, tag) {
 function israel() {
 
 
-
 //finance wave 1
 getPrice("VFH,BRK.B,V,JPM,MA");
 setTimeout(function(){
@@ -51,6 +50,7 @@ test(VFH,"MS");
 test(VFH,"BLK");
 test(VFH,"GS");
 test(VFH,"UBS");
+getPrice("XLK,MSFT,GOOG,FB,CSCO");
 }, (1500*calcs));
 calcs++;
 //finance wave 3
@@ -59,25 +59,56 @@ calcs++;
 
 
 
-
 //tech wave 1
-getPrice("XLK,MSFT,GOOG,FB,CSCO");
 setTimeout(function(){
 XLK=extract("XLK");
-console.log("XLK (Tech) : "+XLK+"%");
+console.log("XLK (Technology) : "+XLK+"%");
 createListing("Technology = " + XLK + "%", "u");
 test(XLK,"MSFT");
 test(XLK,"GOOG");
 test(XLK,"FB");
 test(XLK,"CSCO");
-//getPrice("BAC,WFC,C,HSBC,HDB");
+getPrice("ADBE,ORCL,CRM,PYPL,IBM");
 }, (1500*calcs));
 calcs++;
 //tech wave 1
+
+
+
+
+//tech wave 2
+setTimeout(function(){
+test(XLK,"ADBE");
+test(XLK,"ORCL");
+test(XLK,"CRM");
+test(XLK,"PYPL");
+test(XLK,"IBM");
+getPrice("TWTR,WORK,Z,DBX");
+}, (1500*calcs));
+calcs++;
+//tech wave 2
+
+
+
+
+//tech wave 3
+setTimeout(function(){
+test(XLK,"TWTR");
+test(XLK,"WORK");
+test(XLK,"Z"); 
+test(XLK,"DBX");
+//getPrice("TWTR,WORK,Z,DBX,GE");
+}, (1500*calcs));
+calcs++;
+//tech wave 3
+
+
+
+
+
+
+
 }
-
-
-
 
 
 

@@ -21,6 +21,7 @@ fetch(url, {
     .then(json => jew = ((Object.values(json))[2]))
 }
 function getPrice(symbols) {
+temp=[];
 price(symbols);
 setTimeout(function(){
 for (i = 0; i < (symbols.split(",").length); i++) {
