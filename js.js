@@ -50,5 +50,6 @@ var difference = .5;
 function test(symbol1, symbol2) {
 	if (symbol1-(extract(symbol2))>difference) {
 		createListing(symbol2 + " = " + (extract(symbol2)) + "%", "p");
+                createListing(" ", "a");
 	}
 }
