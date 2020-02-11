@@ -8,6 +8,9 @@ function createListing(input, tag) {
   var para = document.createElement(tag);
   para.innerHTML = (input);
   document.getElementById("skeleton").appendChild(para);
+  var para = document.createElement("a");
+  para.innerHTML = " ";
+  document.getElementById("skeleton").appendChild(para);
 }
 function israel() {
 
